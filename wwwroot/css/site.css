@@ -209,3 +209,19 @@ body.dark-mode textarea::placeholder {
     margin-top: 7rem;
   }
 }
+
+/* Enhanced styling for active navigation item */
+.nav-link.active {
+  font-weight: bold;
+  color: #ffffff !important;
+  background-color: #007bff; /* Bootstrap primary color */
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Add padding for better spacing */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.nav-link.active:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  color: #ffffff !important;
+}

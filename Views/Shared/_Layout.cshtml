@@ -23,7 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">School Management App MVC</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PRN222 Project</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -31,23 +31,29 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" 
+                               asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "About" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" 
+                               asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
                         @if(User.Identity.IsAuthenticated){
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")" 
+                                   asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Lecturers" asp-action="Index">Lecturers</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Lecturers" ? "active" : "")" 
+                                   asp-area="" asp-controller="Lecturers" asp-action="Index">Lecturers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Students" ? "active" : "")" 
+                                   asp-area="" asp-controller="Students" asp-action="Index">Students</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Classes" asp-action="Index">Class Management</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Classes" ? "active" : "")" 
+                                   asp-area="" asp-controller="Classes" asp-action="Index">Class Management</a>
                             </li>
                         }
                         
