@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Localization
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,44 +25,69 @@
         }
     </script>
 </head>
-<body> 
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PRN222 Project</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["ProjectName"]</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="@Localizer["ToggleNavigation"]">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+
                         <li class="nav-item">
-                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" 
-                               asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "About" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" 
-                               asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "About" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="About">@Localizer["About"]</a>
                         </li>
-                        @if(User.Identity.IsAuthenticated){
+                        <!-- Language Switcher -->
+                        <li class="nav-item dropdown">
+                            @{
+                                var currentCulture = CultureInfo.CurrentUICulture.Name;
+                                var currentFlag = currentCulture == "vi-VN" ? "~/images/flags/vi.png" : "~/images/flags/en.png";
+                                var currentLanguage = currentCulture == "vi-VN" ? Localizer["Vietnamese"] : Localizer["English"];
+                            }
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="@currentFlag" alt="@currentLanguage" width="24" height="16" asp-append-version="true" /> @currentLanguage
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="SetLanguage" asp-route-culture="en-US">
+                                        <img src="~/images/flags/en.png" alt="@Localizer["English"]" width="24" height="16" /> @Localizer["English"]
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="SetLanguage" asp-route-culture="vi-VN">
+                                        <img src="~/images/flags/vi.png" alt="@Localizer["Vietnamese"]" width="24" height="16" /> @Localizer["Vietnamese"]
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")" 
-                                   asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")"
+                                   asp-area="" asp-controller="Courses" asp-action="Index">@Localizer["Courses"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Lecturers" ? "active" : "")" 
-                                   asp-area="" asp-controller="Lecturers" asp-action="Index">Lecturers</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Lecturers" ? "active" : "")"
+                                   asp-area="" asp-controller="Lecturers" asp-action="Index">@Localizer["Lecturers"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Students" ? "active" : "")" 
-                                   asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Students" ? "active" : "")"
+                                   asp-area="" asp-controller="Students" asp-action="Index">@Localizer["Students"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Classes" ? "active" : "")" 
-                                   asp-area="" asp-controller="Classes" asp-action="Index">Class Management</a>
+                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Classes" ? "active" : "")"
+                                   asp-area="" asp-controller="Classes" asp-action="Index">@Localizer["ClassManagement"]</a>
                             </li>
                         }
-                        
+
                     </ul>
                     <div class="d-flex align-items-center">
                         <!-- Add the dark mode toggle button with an icon -->
@@ -77,7 +108,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - School Management App MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - @Localizer["FooterText"] - <a asp-area="" asp-controller="Home" asp-action="Privacy">@Localizer["Privacy"]</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
