@@ -152,15 +152,28 @@ namespace SchoolManagementApp.MVC.Controllers
         {
             if (_context.Courses == null)
             {
-                return Problem("Entity set 'SchoolManagementDbContext.Courses'  is null.");
+                return Problem("Entity set 'SchoolManagementDbContext.Courses' is null.");
             }
-            var course = await _context.Courses.FindAsync(id);
+
+            var course = await _context.Courses
+                .Include(c => c.Classes)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
             if (course != null)
             {
+                if (course.Classes.Any())
+                {
+                    TempData["SwalMessage"] = "Cannot delete course. The course has associated classes.";
+                    TempData["SwalType"] = "error";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 _context.Courses.Remove(course);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
+            TempData["SwalMessage"] = "Course deleted successfully.";
+            TempData["SwalType"] = "success";
             return RedirectToAction(nameof(Index));
         }
 

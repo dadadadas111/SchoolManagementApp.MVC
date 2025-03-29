@@ -144,15 +144,28 @@ namespace SchoolManagementApp.MVC.Controllers
         {
             if (_context.Lecturers == null)
             {
-                return Problem("Entity set 'SchoolManagementDbContext.Lecturers'  is null.");
+                return Problem("Entity set 'SchoolManagementDbContext.Lecturers' is null.");
             }
-            var lecturer = await _context.Lecturers.FindAsync(id);
+
+            var lecturer = await _context.Lecturers
+                .Include(l => l.Classes)
+                .FirstOrDefaultAsync(l => l.Id == id);
+
             if (lecturer != null)
             {
+                if (lecturer.Classes.Any())
+                {
+                    TempData["SwalMessage"] = "Cannot delete lecturer. The lecturer is assigned to one or more classes.";
+                    TempData["SwalType"] = "error";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 _context.Lecturers.Remove(lecturer);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
+            TempData["SwalMessage"] = "Lecturer deleted successfully.";
+            TempData["SwalType"] = "success";
             return RedirectToAction(nameof(Index));
         }
 

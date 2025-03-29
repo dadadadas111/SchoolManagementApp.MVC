@@ -155,15 +155,19 @@ namespace SchoolManagementApp.MVC.Controllers
         {
             if (_context.Enrollments == null)
             {
-                return Problem("Entity set 'SchoolManagementDbContext.Enrollments'  is null.");
+                return Problem("Entity set 'SchoolManagementDbContext.Enrollments' is null.");
             }
+
             var enrollment = await _context.Enrollments.FindAsync(id);
+
             if (enrollment != null)
             {
                 _context.Enrollments.Remove(enrollment);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
+            TempData["SwalMessage"] = "Enrollment deleted successfully.";
+            TempData["SwalType"] = "success";
             return RedirectToAction(nameof(Index));
         }
 

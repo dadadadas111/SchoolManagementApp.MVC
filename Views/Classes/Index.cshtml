@@ -55,7 +55,17 @@
     <script>
         $(function(){
             $('.table').DataTable();
-            
+
+            @if (TempData["SwalMessage"] != null)
+            {
+                <text>
+                Swal.fire({
+                    icon: '@TempData["SwalType"]',
+                    title: '@TempData["SwalMessage"]'
+                });
+                </text>
+            }
+
             $('.deleteBtn').click(function(e){
                 Swal.fire({
                     title: 'Are you sure?',
@@ -74,8 +84,8 @@
                             );
                             var btn = $(this);
                             var id = btn.data("id");
-                            $('#courseid').val(id);
-                            $('#courseDeleteForm').submit();
+                            $('#classid').val(id);
+                            $('#classDeleteForm').submit();
                         }
                     })
             })

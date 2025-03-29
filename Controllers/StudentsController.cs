@@ -144,15 +144,28 @@ namespace SchoolManagementApp.MVC.Controllers
         {
             if (_context.Students == null)
             {
-                return Problem("Entity set 'SchoolManagementDbContext.Students'  is null.");
+                return Problem("Entity set 'SchoolManagementDbContext.Students' is null.");
             }
-            var student = await _context.Students.FindAsync(id);
+
+            var student = await _context.Students
+                .Include(s => s.Enrollments)
+                .FirstOrDefaultAsync(s => s.Id == id);
+
             if (student != null)
             {
+                if (student.Enrollments.Any())
+                {
+                    TempData["SwalMessage"] = "Cannot delete student. The student is enrolled in one or more classes.";
+                    TempData["SwalType"] = "error";
+                    return RedirectToAction(nameof(Index));
+                }
+
                 _context.Students.Remove(student);
+                await _context.SaveChangesAsync();
             }
-            
-            await _context.SaveChangesAsync();
+
+            TempData["SwalMessage"] = "Student deleted successfully.";
+            TempData["SwalType"] = "success";
             return RedirectToAction(nameof(Index));
         }
 

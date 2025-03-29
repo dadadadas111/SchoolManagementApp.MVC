@@ -49,6 +49,16 @@
         $(function(){
             $('.table').DataTable();
 
+            @if (TempData["SwalMessage"] != null)
+            {
+                <text>
+                Swal.fire({
+                    icon: '@TempData["SwalType"]',
+                    title: '@TempData["SwalMessage"]'
+                });
+                </text>
+            }
+
             $('.deleteBtn').click(function(e){
                 Swal.fire({
                     title: 'Are you sure?',
