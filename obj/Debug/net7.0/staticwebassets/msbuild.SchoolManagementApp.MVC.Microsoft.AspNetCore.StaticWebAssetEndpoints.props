@@ -1,16 +1,16 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/css/site.39zceeuqwh.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"39zceeuqwh"},{"Name":"integrity","Value":"sha256-d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI="},{"Name":"label","Value":"_content/SchoolManagementApp.MVC/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2910"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 05:51:22 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2910"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 05:51:22 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4058"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 06:43:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/css/site.oq23wbnbhh.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"oq23wbnbhh"},{"Name":"integrity","Value":"sha256-YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y="},{"Name":"label","Value":"_content/SchoolManagementApp.MVC/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4058"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 06:43:56 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -35,6 +35,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qxhf36tsf8"},{"Name":"integrity","Value":"sha256-jpMKvJgdTfwZrxkhuE\u002B5rsBTrn4iholIDSWlSqNnueo="},{"Name":"label","Value":"_content/SchoolManagementApp.MVC/images/blackboard.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"374195"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022jpMKvJgdTfwZrxkhuE\u002B5rsBTrn4iholIDSWlSqNnueo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 05:17:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/js/dark-mode-toggle.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\dark-mode-toggle.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1072"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 06:43:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/js/dark-mode-toggle.z6gmrfj8dl.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\dark-mode-toggle.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"z6gmrfj8dl"},{"Name":"integrity","Value":"sha256-hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU="},{"Name":"label","Value":"_content/SchoolManagementApp.MVC/js/dark-mode-toggle.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1072"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU=\u0022"},{"Name":"Last-Modified","Value":"Sat, 29 Mar 2025 06:43:56 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SchoolManagementApp.MVC/js/site.6b9nfc4n3r.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>

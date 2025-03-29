@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PjMeKOfRUrMtp8ykRwIOKlpCVBrWZw4dBuSNsr9xZDY=",
+  "Hash": "WhyJ3nnH17UZTzcRRtctdhqqp56GCGqevfVeBpiwZ6I=",
   "Source": "SchoolManagementApp.MVC",
   "BasePath": "_content/SchoolManagementApp.MVC",
   "Mode": "Default",
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "39zceeuqwh",
-      "Integrity": "d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI=",
+      "Fingerprint": "oq23wbnbhh",
+      "Integrity": "YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -204,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\blackboard.jpg"
+    },
+    {
+      "Identity": "D:\\SchoolManagementApp.MVC\\wwwroot\\js\\dark-mode-toggle.js",
+      "SourceId": "SchoolManagementApp.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\SchoolManagementApp.MVC\\wwwroot\\",
+      "BasePath": "_content/SchoolManagementApp.MVC",
+      "RelativePath": "js/dark-mode-toggle#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z6gmrfj8dl",
+      "Integrity": "hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\dark-mode-toggle.js"
     },
     {
       "Identity": "D:\\SchoolManagementApp.MVC\\wwwroot\\js\\site.js",
@@ -1574,51 +1595,6 @@
       ]
     },
     {
-      "Route": "css/site.39zceeuqwh.css",
-      "AssetFile": "D:\\SchoolManagementApp.MVC\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2910"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 29 Mar 2025 05:51:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "39zceeuqwh"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI="
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "D:\\SchoolManagementApp.MVC\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1629,7 +1605,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2910"
+          "Value": "4058"
         },
         {
           "Name": "Content-Type",
@@ -1637,11 +1613,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI=\""
+          "Value": "\"YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 29 Mar 2025 05:51:22 GMT"
+          "Value": "Sat, 29 Mar 2025 06:43:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1651,7 +1627,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-d2PPmK9H2z8pWsNbZqhIATjiE54eb1nvpk0fUAKOGiI="
+          "Value": "sha256-YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.oq23wbnbhh.css",
+      "AssetFile": "D:\\SchoolManagementApp.MVC\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4058"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 06:43:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oq23wbnbhh"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YHM4kHvliymWuFdVRdjQX2hfzRtcrBW31wf00bX6F8Y="
         }
       ]
     },
@@ -1816,6 +1837,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-jpMKvJgdTfwZrxkhuE+5rsBTrn4iholIDSWlSqNnueo="
+        }
+      ]
+    },
+    {
+      "Route": "js/dark-mode-toggle.js",
+      "AssetFile": "D:\\SchoolManagementApp.MVC\\wwwroot\\js\\dark-mode-toggle.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1072"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 06:43:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU="
+        }
+      ]
+    },
+    {
+      "Route": "js/dark-mode-toggle.z6gmrfj8dl.js",
+      "AssetFile": "D:\\SchoolManagementApp.MVC\\wwwroot\\js\\dark-mode-toggle.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1072"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 06:43:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z6gmrfj8dl"
+        },
+        {
+          "Name": "label",
+          "Value": "js/dark-mode-toggle.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hT3bNKLWDu/hB3moj2D6pCsc0al6ZaVFJdBDp9oyVvU="
         }
       ]
     },

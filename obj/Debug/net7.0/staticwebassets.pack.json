@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\blackboard.jpg"
     },
     {
+      "Id": "D:\\SchoolManagementApp.MVC\\wwwroot\\js\\dark-mode-toggle.js",
+      "PackagePath": "staticwebassets\\js\\dark-mode-toggle.js"
+    },
+    {
       "Id": "D:\\SchoolManagementApp.MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

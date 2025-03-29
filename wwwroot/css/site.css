@@ -81,6 +81,64 @@ body {
   color: #5a5a5a;
 }
 
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .btn {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.dark-mode .nav-scroller {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode table {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+body.dark-mode table thead {
+  background-color: #333333;
+}
+
+body.dark-mode table tbody tr:nth-child(odd) {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode table tbody tr:nth-child(even) {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .dataTables_paginate .paginate_button {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+body.dark-mode .dataTables_paginate .paginate_button:hover {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #bbbbbb;
+}
+
+/* Add more dark mode styles as needed for other elements */
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -100,7 +158,6 @@ body {
   height: 32rem;
 }
 
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
@@ -115,7 +172,6 @@ body {
   margin-left: .75rem;
 }
 /* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */

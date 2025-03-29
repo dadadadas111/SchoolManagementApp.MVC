@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" />
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SchoolManagementApp.MVC.styles.css" asp-append-version="true" />
+    <script>
+        // Apply dark mode class before the page loads
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.documentElement.classList.add("dark-mode");
+        }
+    </script>
 </head>
 <body> 
     <header>
@@ -45,7 +52,13 @@
                         }
                         
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <div class="d-flex align-items-center">
+                        <!-- Add the dark mode toggle button with an icon -->
+                        <button id="dark-mode-toggle" class="btn btn-secondary me-2">
+                            <span id="dark-mode-icon" class="bi bi-moon"></span>
+                        </button>
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
             </div>
         </nav>
@@ -67,6 +80,8 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Include the dark mode toggle script -->
+    <script src="/js/dark-mode-toggle.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
     @await Component.InvokeAsync("Notyf")
 </body>
