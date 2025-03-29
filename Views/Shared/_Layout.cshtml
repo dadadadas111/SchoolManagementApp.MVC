@@ -38,13 +38,34 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                            <a class="nav-link button-style @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
                                asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light @(ViewContext.RouteData.Values["action"]?.ToString() == "About" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                            <a class="nav-link button-style @(ViewContext.RouteData.Values["action"]?.ToString() == "About" && ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
                                asp-area="" asp-controller="Home" asp-action="About">@Localizer["About"]</a>
                         </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link button-style @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")"
+                                   asp-area="" asp-controller="Courses" asp-action="Index">@Localizer["Courses"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link button-style @(ViewContext.RouteData.Values["controller"]?.ToString() == "Lecturers" ? "active" : "")"
+                                   asp-area="" asp-controller="Lecturers" asp-action="Index">@Localizer["Lecturers"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link button-style @(ViewContext.RouteData.Values["controller"]?.ToString() == "Students" ? "active" : "")"
+                                   asp-area="" asp-controller="Students" asp-action="Index">@Localizer["Students"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link button-style @(ViewContext.RouteData.Values["controller"]?.ToString() == "Classes" ? "active" : "")"
+                                   asp-area="" asp-controller="Classes" asp-action="Index">@Localizer["ClassManagement"]</a>
+                            </li>
+                        }
+
                         <!-- Language Switcher -->
                         <li class="nav-item dropdown">
                             @{
@@ -68,25 +89,6 @@
                                 </li>
                             </ul>
                         </li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")"
-                                   asp-area="" asp-controller="Courses" asp-action="Index">@Localizer["Courses"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Lecturers" ? "active" : "")"
-                                   asp-area="" asp-controller="Lecturers" asp-action="Index">@Localizer["Lecturers"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Students" ? "active" : "")"
-                                   asp-area="" asp-controller="Students" asp-action="Index">@Localizer["Students"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Classes" ? "active" : "")"
-                                   asp-area="" asp-controller="Classes" asp-action="Index">@Localizer["ClassManagement"]</a>
-                            </li>
-                        }
 
                     </ul>
                     <div class="d-flex align-items-center">

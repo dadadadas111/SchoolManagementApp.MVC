@@ -225,3 +225,44 @@ body.dark-mode textarea::placeholder {
   background-color: #0056b3; /* Darker shade on hover */
   color: #ffffff !important;
 }
+
+.navbar-nav .nav-item .nav-link.button-style {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background-color: #f8f9fa;
+  color: #212529;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link.button-style:hover {
+  background-color: #e2e6ea;
+  color: #212529;
+}
+
+.navbar-nav .nav-item .nav-link.button-style.active {
+  background-color: #007bff;
+  color: #74fff8;
+  border-color: #007bff;
+}
+
+/* Dark mode compatibility */
+body.dark-mode .navbar-nav .nav-item .nav-link.button-style {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+body.dark-mode .navbar-nav .nav-item .nav-link.button-style:hover {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar-nav .nav-item .nav-link.button-style.active {
+  background-color: #0056b3;
+  color: #ffffff;
+  border-color: #0056b3;
+}
