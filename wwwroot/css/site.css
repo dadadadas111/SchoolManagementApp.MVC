@@ -1,142 +1,144 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    /* transition delay for changing mode */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 @media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }
 
 .b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
 .b-example-vr {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
 }
 
 .bi {
-  vertical-align: -.125em;
-  fill: currentColor;
+    vertical-align: -.125em;
+    fill: currentColor;
 }
 
 .nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
 }
 
-.nav-scroller .nav {
-  display: flex;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
+    .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
 
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 3rem;
-  color: #5a5a5a;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
+    /* Dark mode styles */
+    body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
 
-body.dark-mode .btn {
-  background-color: #333333;
-  color: #ffffff;
-}
+        body.dark-mode .btn {
+            background-color: #333333;
+            color: #ffffff;
+        }
 
-body.dark-mode .nav-scroller {
-  background-color: #1e1e1e;
-}
+        body.dark-mode .nav-scroller {
+            background-color: #1e1e1e;
+        }
 
-body.dark-mode table {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border-color: #333333;
-}
+        body.dark-mode table {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border-color: #333333;
+        }
 
-body.dark-mode table thead {
-  background-color: #333333;
-}
+            body.dark-mode table thead {
+                background-color: #333333;
+            }
 
-body.dark-mode table tbody tr:nth-child(odd) {
-  background-color: #2a2a2a;
-}
+            body.dark-mode table tbody tr:nth-child(odd) {
+                background-color: #2a2a2a;
+            }
 
-body.dark-mode table tbody tr:nth-child(even) {
-  background-color: #1e1e1e;
-}
+            body.dark-mode table tbody tr:nth-child(even) {
+                background-color: #1e1e1e;
+            }
 
-body.dark-mode .dataTables_paginate .paginate_button {
-  background-color: #333333;
-  color: #ffffff;
-  border: 1px solid #444444;
-}
+        body.dark-mode .dataTables_paginate .paginate_button {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #444444;
+        }
 
-body.dark-mode .dataTables_paginate .paginate_button:hover {
-  background-color: #444444;
-  color: #ffffff;
-}
+            body.dark-mode .dataTables_paginate .paginate_button:hover {
+                background-color: #444444;
+                color: #ffffff;
+            }
 
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-  background-color: #2a2a2a;
-  color: #ffffff;
-  border: 1px solid #444444;
-}
+        body.dark-mode input,
+        body.dark-mode textarea,
+        body.dark-mode select {
+            background-color: #2a2a2a;
+            color: #ffffff;
+            border: 1px solid #444444;
+        }
 
-body.dark-mode input::placeholder,
-body.dark-mode textarea::placeholder {
-  color: #bbbbbb;
-}
+            body.dark-mode input::placeholder,
+            body.dark-mode textarea::placeholder {
+                color: #bbbbbb;
+            }
 
 /* Add more dark mode styles as needed for other elements */
 
@@ -145,17 +147,17 @@ body.dark-mode textarea::placeholder {
 
 /* Carousel base class */
 .carousel {
-  margin-bottom: 4rem;
+    margin-bottom: 4rem;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+    bottom: 3rem;
+    z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
+    height: 32rem;
 }
 
 /* MARKETING CONTENT
@@ -163,27 +165,27 @@ body.dark-mode textarea::placeholder {
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
-/* rtl:begin:ignore */
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
+    /* rtl:begin:ignore */
+    .marketing .col-lg-4 p {
+        margin-right: .75rem;
+        margin-left: .75rem;
+    }
 /* rtl:end:ignore */
 
 /* Featurettes
 ------------------------- */
 
 .featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
 .featurette-heading {
-  letter-spacing: -.05rem;
+    letter-spacing: -.05rem;
 }
 
 /* rtl:end:remove */
@@ -192,80 +194,80 @@ body.dark-mode textarea::placeholder {
 -------------------------------------------------- */
 
 @media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
+    .featurette-heading {
+        font-size: 50px;
+    }
 }
 
 @media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
+    .featurette-heading {
+        margin-top: 7rem;
+    }
 }
 
 /* Enhanced styling for active navigation item */
 .nav-link.active {
-  font-weight: bold;
-  color: #ffffff !important;
-  background-color: #007bff; /* Bootstrap primary color */
-  border-radius: 0.25rem; /* Rounded corners */
-  padding: 0.5rem 1rem; /* Add padding for better spacing */
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    font-weight: bold;
+    color: #ffffff !important;
+    background-color: #007bff; /* Bootstrap primary color */
+    border-radius: 0.25rem; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Add padding for better spacing */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-.nav-link.active:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  color: #ffffff !important;
-}
+    .nav-link.active:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+        color: #ffffff !important;
+    }
 
 .navbar-nav .nav-item .nav-link.button-style {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  background-color: #f8f9fa;
-  color: #212529;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    background-color: #f8f9fa;
+    color: #212529;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar-nav .nav-item .nav-link.button-style:hover {
-  background-color: #e2e6ea;
-  color: #212529;
-}
+    .navbar-nav .nav-item .nav-link.button-style:hover {
+        background-color: #e2e6ea;
+        color: #212529;
+    }
 
-.navbar-nav .nav-item .nav-link.button-style.active {
-  background-color: #007bff;
-  color: #74fff8;
-  border-color: #007bff;
-}
+    .navbar-nav .nav-item .nav-link.button-style.active {
+        background-color: #007bff;
+        color: #74fff8;
+        border-color: #007bff;
+    }
 
 /* Dark mode compatibility */
-body.dark-mode .navbar-nav .nav-item .nav-link.button-style {
-  background-color: #333333;
-  color: #ffffff;
-  border: 1px solid #444444;
+.navbar-nav .nav-item .nav-link.button-style {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
 }
 
-body.dark-mode .navbar-nav .nav-item .nav-link.button-style:hover {
-  background-color: #444444;
-  color: #ffffff;
-}
+    .navbar-nav .nav-item .nav-link.button-style:hover {
+        background-color: #444444;
+        color: #ffffff;
+    }
 
-body.dark-mode .navbar-nav .nav-item .nav-link.button-style.active {
-  background-color: #0056b3;
-  color: #ffffff;
-  border-color: #0056b3;
-}
+    .navbar-nav .nav-item .nav-link.button-style.active {
+        background-color: #0056b3;
+        color: #ffffff;
+        border-color: #0056b3;
+    }
 
 /* Custom badge styles */
 .badge-primary {
