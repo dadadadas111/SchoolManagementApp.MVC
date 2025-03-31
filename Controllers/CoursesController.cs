@@ -74,6 +74,7 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 _context.Add(course);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Course created successfully.");
                 return RedirectToAction(nameof(Index));
             }
             return View(course);
@@ -112,6 +113,7 @@ namespace SchoolManagementApp.MVC.Controllers
                 try
                 {
                     _context.Update(course);
+                    _notyfService.Success("Course updated successfully.");
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

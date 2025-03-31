@@ -79,6 +79,7 @@ namespace SchoolManagementApp.MVC.Controllers
 
                 _context.Add(@class);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Class created successfully.");
                 return RedirectToAction(nameof(Index));
             }
             CreateSelectLists();
@@ -128,6 +129,7 @@ namespace SchoolManagementApp.MVC.Controllers
 
                     _context.Update(@class);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Class updated successfully.");
                 }
                 catch (DbUpdateConcurrencyException)
                 {

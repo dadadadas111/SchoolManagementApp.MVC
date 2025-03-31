@@ -70,6 +70,7 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 _context.Add(enrollment);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Enrollment created successfully.");
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Id", enrollment.ClassId);

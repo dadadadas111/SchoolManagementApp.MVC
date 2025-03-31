@@ -67,6 +67,7 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 _context.Add(lecturer);
                 await _context.SaveChangesAsync();
+                _notyfService.Success("Lecturer created successfully.");
                 return RedirectToAction(nameof(Index));
             }
             return View(lecturer);
@@ -105,6 +106,7 @@ namespace SchoolManagementApp.MVC.Controllers
                 try
                 {
                     _context.Update(lecturer);
+                    _notyfService.Success("Lecturer updated successfully.");
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
