@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\SchoolManagementApp.MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|d:\\schoolmanagementapp.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|d:\\schoolmanagementapp.mvc\\views\\classes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|solutionrelative:views\\classes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,14 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\SchoolManagementApp.MVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\SchoolManagementApp.MVC\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADUAAAAhAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SchoolManagementApp.MVC\\Views\\Classes\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Classes\\Index.cshtml",
+              "ToolTip": "D:\\SchoolManagementApp.MVC\\Views\\Classes\\Index.cshtml",
+              "RelativeToolTip": "Views\\Classes\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-31T12:40:24.827Z",
+              "WhenOpened": "2025-03-31T13:19:06.557Z",
               "EditorCaption": ""
             }
           ]

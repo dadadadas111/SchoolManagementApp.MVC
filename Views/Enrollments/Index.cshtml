@@ -1,82 +1,83 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @model IEnumerable<SchoolManagementApp.MVC.Data.Enrollment>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Localizer["EnrollmentsTitle"];
 }
 
-<h1>Index</h1>
+<h1>@Localizer["EnrollmentsHeading"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">@Localizer["CreateNewEnrollment"]</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Grade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Class)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Student)
-            </th>
+            <td>Id</td>
+            <th>@Localizer["StudentName"]</th>
+            <th>@Localizer["CourseName"]</th>
+            <th>@Localizer["EnrollmentDate"]</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Class.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id" class="deleteBtn" data-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Class.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.Id)
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a>
+                    <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">@Localizer["Delete"]</button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
-@section Scripts{
+<form asp-action="Delete" id="enrollmentDeleteForm">
+    <input type="hidden" id="enrollmentid" name="Id" />
+</form>
+
+@section Scripts {
     <script>
-        $(function(){
+        $(function () {
             $('.table').DataTable();
 
-            @if (TempData["SwalMessage"] != null)
-            {
-                <text>
-                Swal.fire({
-                    icon: '@TempData["SwalType"]',
-                    title: '@TempData["SwalMessage"]'
-                });
-                </text>
-            }
+        @if (TempData["SwalMessage"] != null)
+        {
+            <text>
+                    Swal.fire({
+                        icon: '@TempData["SwalType"]',
+                        title: '@TempData["SwalMessage"]'
+                    });
+            </text>
+        }
 
             $('.deleteBtn').click(function(e){
                 Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: '@Localizer["ConfirmDeleteTitle"]',
+                    text: "@Localizer["ConfirmDeleteText"]",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: '@Localizer["ConfirmDeleteYes"]'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            // Swal.fire(
-                            // 'Deleted!',
-                            // 'Your file has been deleted.',
-                            // 'success'
-                            // );
                             var btn = $(this);
                             var id = btn.data("id");
                             $('#enrollmentid').val(id);

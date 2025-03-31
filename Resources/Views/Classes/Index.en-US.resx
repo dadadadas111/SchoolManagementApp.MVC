@@ -1,0 +1,47 @@
+<root>
+  <data name="ClassesTitle" xml:space="preserve">
+    <value>Classes</value>
+  </data>
+  <data name="ClassesHeading" xml:space="preserve">
+    <value>Available Classes</value>
+  </data>
+  <data name="CreateNewClass" xml:space="preserve">
+    <value>Create New Class</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Lecturer</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="ConfirmDeleteText" xml:space="preserve">
+    <value>You won't be able to revert this!</value>
+  </data>
+  <data name="ConfirmDeleteYes" xml:space="preserve">
+    <value>Yes, delete it!</value>
+  </data>
+</root>

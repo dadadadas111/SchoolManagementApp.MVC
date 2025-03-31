@@ -1,0 +1,29 @@
+<root>
+  <data name="CoursesTitle" xml:space="preserve">
+    <value>Khóa Học</value>
+  </data>
+  <data name="CoursesHeading" xml:space="preserve">
+    <value>Các Khóa Học Hiện Có</value>
+  </data>
+  <data name="CreateNewCourse" xml:space="preserve">
+    <value>Tạo Khóa Học Mới</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Tên Khóa Học</value>
+  </data>
+  <data name="CourseCode" xml:space="preserve">
+    <value>Mã Khóa Học</value>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Tín Chỉ</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh Sửa</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi Tiết</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+</root>

@@ -1,0 +1,26 @@
+<root>
+  <data name="LecturersTitle" xml:space="preserve">
+    <value>Giảng Viên</value>
+  </data>
+  <data name="LecturersHeading" xml:space="preserve">
+    <value>Các Giảng Viên Hiện Có</value>
+  </data>
+  <data name="CreateNewLecturer" xml:space="preserve">
+    <value>Thêm Giảng Viên Mới</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Họ</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh Sửa</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi Tiết</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+</root>

@@ -1,6 +1,9 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "About Us";
+    ViewData["Title"] = Localizer["AboutUsTitle"];
 }
 
-<h1>We are a capable development company</h1>
-<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+<h1>@Localizer["AboutUsHeading"]</h1>
+<p class="lead">@Localizer["AboutUsDescription"]</p>

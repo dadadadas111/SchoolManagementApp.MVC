@@ -1,0 +1,29 @@
+<root>
+  <data name="CoursesTitle" xml:space="preserve">
+    <value>Courses</value>
+  </data>
+  <data name="CoursesHeading" xml:space="preserve">
+    <value>Available Courses</value>
+  </data>
+  <data name="CreateNewCourse" xml:space="preserve">
+    <value>Create New Course</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="CourseCode" xml:space="preserve">
+    <value>Course Code</value>
+  </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+</root>

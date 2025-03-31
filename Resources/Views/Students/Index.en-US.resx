@@ -1,0 +1,29 @@
+<root>
+  <data name="StudentsTitle" xml:space="preserve">
+    <value>Students</value>
+  </data>
+  <data name="StudentsHeading" xml:space="preserve">
+    <value>Available Students</value>
+  </data>
+  <data name="CreateNewStudent" xml:space="preserve">
+    <value>Create New Student</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date of Birth</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+</root>

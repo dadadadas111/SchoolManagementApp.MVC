@@ -1,0 +1,47 @@
+<root>
+  <data name="ClassesTitle" xml:space="preserve">
+    <value>Lớp Học</value>
+  </data>
+  <data name="ClassesHeading" xml:space="preserve">
+    <value>Các Lớp Học Hiện Có</value>
+  </data>
+  <data name="CreateNewClass" xml:space="preserve">
+    <value>Thêm Lớp Học Mới</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Khóa Học</value>
+  </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Giảng Viên</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Ngày Bắt Đầu</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Ngày Kết Thúc</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Thời Gian</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng Thái</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh Sửa</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi Tiết</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve">
+    <value>Bạn có chắc chắn không?</value>
+  </data>
+  <data name="ConfirmDeleteText" xml:space="preserve">
+    <value>Bạn sẽ không thể hoàn tác điều này!</value>
+  </data>
+  <data name="ConfirmDeleteYes" xml:space="preserve">
+    <value>Vâng, xóa nó!</value>
+  </data>
+</root>

@@ -1,58 +1,49 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @model IEnumerable<SchoolManagementApp.MVC.Data.Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Localizer["StudentsTitle"];
 }
 
-<h1>Students</h1>
+<h1>@Localizer["StudentsHeading"]</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a asp-action="Create" class="btn btn-success">@Localizer["CreateNewStudent"]</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateOfBirth)
-            </th>
+            <th>@Localizer["FirstName"]</th>
+            <th>@Localizer["LastName"]</th>
+            <th>@Localizer["DateOfBirth"]</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model) {
         <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.DateOfBirth</td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-             <td>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a>
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a>
+                <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">@Localizer["Delete"]</button>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
 
 <form asp-action="Delete" id="studentDeleteForm">
-    <input type="hidden" id="studentid" name="Id"/>
+    <input type="hidden" id="studentid" name="Id" />
 </form>
 
-@section Scripts{
+@section Scripts {
     <script>
-        $(function(){
+        $(function () {
             $('.table').DataTable();
 
             @if (TempData["SwalMessage"] != null)
@@ -76,11 +67,6 @@
                     confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            // Swal.fire(
-                            // 'Deleted!',
-                            // 'Your file has been deleted.',
-                            // 'success'
-                            // );
                             var btn = $(this);
                             var id = btn.data("id");
                             $('#studentid').val(id);

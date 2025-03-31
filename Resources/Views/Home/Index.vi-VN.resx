@@ -132,4 +132,13 @@
     <data name="fromAllOverTheWorld" xml:space="preserve">
     <value>Từ khắp nơi trên thế giới.</value>
   </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Chào mừng đến với trang web của chúng tôi!</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Đây là trang chủ của ứng dụng quản lý trường học.</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Tìm hiểu thêm</value>
+  </data>
 </root>

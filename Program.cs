@@ -64,7 +64,6 @@ app.UseRouting();
 var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
 app.UseRequestLocalization(localizationOptions);
 
-
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseNotyf();

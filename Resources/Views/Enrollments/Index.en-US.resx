@@ -1,0 +1,38 @@
+<root>
+  <data name="EnrollmentsTitle" xml:space="preserve">
+    <value>Enrollments</value>
+  </data>
+  <data name="EnrollmentsHeading" xml:space="preserve">
+    <value>Available Enrollments</value>
+  </data>
+  <data name="CreateNewEnrollment" xml:space="preserve">
+    <value>Create New Enrollment</value>
+  </data>
+  <data name="StudentName" xml:space="preserve">
+    <value>Student Name</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="EnrollmentDate" xml:space="preserve">
+    <value>Enrollment Date</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="ConfirmDeleteText" xml:space="preserve">
+    <value>You won't be able to revert this!</value>
+  </data>
+  <data name="ConfirmDeleteYes" xml:space="preserve">
+    <value>Yes, delete it!</value>
+  </data>
+</root>

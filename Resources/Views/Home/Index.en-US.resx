@@ -132,4 +132,13 @@
     <data name="fromAllOverTheWorld" xml:space="preserve">
     <value>From all over the world.</value>
   </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome to our website!</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>This is the home page of the School Management App.</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
 </root>
