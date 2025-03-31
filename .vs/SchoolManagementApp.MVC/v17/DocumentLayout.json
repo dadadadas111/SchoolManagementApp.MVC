@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\SchoolManagementApp.MVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|d:\\schoolmanagementapp.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|d:\\schoolmanagementapp.mvc\\views\\classes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7C58E76A-525F-4A16-8F3D-B704132252A1}|SchoolManagementApp.MVC.csproj|solutionrelative:views\\classes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -39,25 +43,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\SchoolManagementApp.MVC\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "D:\\SchoolManagementApp.MVC\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-31T13:47:38.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\SchoolManagementApp.MVC\\Views\\Classes\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Classes\\Index.cshtml",
               "ToolTip": "D:\\SchoolManagementApp.MVC\\Views\\Classes\\Index.cshtml",
               "RelativeToolTip": "Views\\Classes\\Index.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAFkAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-31T13:39:33.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ManageEnrollments.cshtml",
               "DocumentMoniker": "D:\\SchoolManagementApp.MVC\\Views\\Classes\\ManageEnrollments.cshtml",
               "RelativeDocumentMoniker": "Views\\Classes\\ManageEnrollments.cshtml",
               "ToolTip": "D:\\SchoolManagementApp.MVC\\Views\\Classes\\ManageEnrollments.cshtml",
               "RelativeToolTip": "Views\\Classes\\ManageEnrollments.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAWwDkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-31T13:37:11.234Z",
               "EditorCaption": ""
