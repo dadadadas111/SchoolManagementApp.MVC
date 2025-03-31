@@ -88,7 +88,9 @@
 @section Scripts {
     <script>
         $(function(){
-            $('.table').DataTable();
+            $('.table').DataTable({
+                order: [[6, 'desc']]
+            });
 
         @if (TempData["SwalMessage"] != null)
         {

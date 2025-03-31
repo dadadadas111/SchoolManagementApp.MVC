@@ -55,7 +55,10 @@
 @section Scripts {
     <script>
         $(function(){
-            $('.table').DataTable();
+            // $('.table').DataTable();
+            $('.table').DataTable({
+                order: [[2, 'desc']]
+            });
 
             $('.enrollemntBtn').click(function(e){
                 Swal.fire({
