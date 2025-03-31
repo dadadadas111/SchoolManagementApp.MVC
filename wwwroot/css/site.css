@@ -266,3 +266,29 @@ body.dark-mode .navbar-nav .nav-item .nav-link.button-style.active {
   color: #ffffff;
   border-color: #0056b3;
 }
+
+/* Custom badge styles */
+.badge-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.badge-light {
+    background-color: #f8f9fa;
+    color: black;
+}

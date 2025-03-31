@@ -28,9 +28,61 @@
         <dd class = "col-sm-10">
             @Model.Lecturer.FirstName @Model.Lecturer.LastName
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.StartDate.ToString("yyyy-MM-dd")
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.EndDate.ToString("yyyy-MM-dd")
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            <span class="badge @GetStatusClass(Model.Status)">
+                @Model.Status
+            </span>
+        </dd>
+        <dt class="col-sm-2">
+            Enrolled Students
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Enrollments.Any())
+            {
+                <ul>
+                    @foreach (var enrollment in Model.Enrollments)
+                    {
+                        <li>@enrollment.Student.FirstName @enrollment.Student.LastName</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No students are enrolled in this class.</p>
+            }
+        </dd>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+@functions {
+    private string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "Created" => "badge-primary",
+            "Started" => "badge-success",
+            "Ended" => "badge-secondary",
+            "Cancelled" => "badge-danger",
+            _ => "badge-light"
+        };
+    }
+}

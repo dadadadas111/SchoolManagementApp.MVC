@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,10 +15,12 @@ namespace SchoolManagementApp.MVC.Controllers
     public class CoursesController : Controller
     {
         private readonly SchoolManagementDbContext _context;
+        private readonly INotyfService _notyfService;
 
-        public CoursesController(SchoolManagementDbContext context)
+        public CoursesController(SchoolManagementDbContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Courses
@@ -163,8 +166,9 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 if (course.Classes.Any())
                 {
-                    TempData["SwalMessage"] = "Cannot delete course. The course has associated classes.";
-                    TempData["SwalType"] = "error";
+                    //TempData["SwalMessage"] = "Cannot delete course. The course has associated classes.";
+                    //TempData["SwalType"] = "error";
+                    _notyfService.Error("Cannot delete course. The course has associated classes.");
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -172,8 +176,9 @@ namespace SchoolManagementApp.MVC.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            TempData["SwalMessage"] = "Course deleted successfully.";
-            TempData["SwalType"] = "success";
+            // TempData["SwalMessage"] = "Course deleted successfully.";
+            // TempData["SwalType"] = "success";
+            _notyfService.Success("Course deleted successfully.");
             return RedirectToAction(nameof(Index));
         }
 

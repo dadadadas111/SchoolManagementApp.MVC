@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,10 +15,12 @@ namespace SchoolManagementApp.MVC.Controllers
     public class StudentsController : Controller
     {
         private readonly SchoolManagementDbContext _context;
+        private readonly INotyfService _notyfService;
 
-        public StudentsController(SchoolManagementDbContext context)
+        public StudentsController(SchoolManagementDbContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Students
@@ -155,8 +158,10 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 if (student.Enrollments.Any())
                 {
-                    TempData["SwalMessage"] = "Cannot delete student. The student is enrolled in one or more classes.";
-                    TempData["SwalType"] = "error";
+                    // TempData["SwalMessage"] = "Cannot delete student. The student is enrolled in one or more classes.";
+                    // TempData["SwalType"] = "error";
+                    // return RedirectToAction(nameof(Index));
+                    _notyfService.Error("Cannot delete student. The student is enrolled in one or more classes.");
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -164,8 +169,9 @@ namespace SchoolManagementApp.MVC.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            TempData["SwalMessage"] = "Student deleted successfully.";
-            TempData["SwalType"] = "success";
+            // TempData["SwalMessage"] = "Student deleted successfully.";
+            // TempData["SwalType"] = "success";
+            _notyfService.Success("Student deleted successfully.");
             return RedirectToAction(nameof(Index));
         }
 

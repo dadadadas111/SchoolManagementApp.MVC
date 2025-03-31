@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,10 +15,13 @@ namespace SchoolManagementApp.MVC.Controllers
     public class EnrollmentsController : Controller
     {
         private readonly SchoolManagementDbContext _context;
+                private readonly INotyfService _notyfService;
 
-        public EnrollmentsController(SchoolManagementDbContext context)
+
+        public EnrollmentsController(SchoolManagementDbContext context, INotyfService notyfService)
         {
             _context = context;
+            _notyfService = notyfService;
         }
 
         // GET: Enrollments
@@ -166,8 +170,9 @@ namespace SchoolManagementApp.MVC.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            TempData["SwalMessage"] = "Enrollment deleted successfully.";
-            TempData["SwalType"] = "success";
+            // TempData["SwalMessage"] = "Enrollment deleted successfully.";
+            // TempData["SwalType"] = "success";
+            _notyfService.Success("Enrollment deleted successfully.");
             return RedirectToAction(nameof(Index));
         }
 

@@ -13,58 +13,83 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Course)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Lecturer)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @item.Course.Code - @item.Course.Name
-            </td>
-            <td>
-                @item.Lecturer.FirstName @item.Lecturer.LastName
-            </td>
-            <td>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
-                <a asp-action="ManageEnrollments" class="btn btn-success" asp-route-classId="@item.Id">Manage Enrollments</a> 
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Course.Code - @item.Course.Name
+                    <span class="badge @GetStatusClass(item.Status)">
+                        @item.Status
+                    </span>
+                </td>
+                <td>
+                    @item.Lecturer.FirstName @item.Lecturer.LastName
+                </td>
+                <td>
+                    @item.StartDate.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @item.EndDate.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @if (item.Status == "Started" || item.Status == "Created")
+                    {
+                        <a asp-action="ManageEnrollments" class="btn btn-success" asp-route-classId="@item.Id">Enrollments</a>
+                    }
+                    @if (item.Status != "Cancelled")
+                    {
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    }
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if (item.Status == "Cancelled" || item.Status == "Ended")
+                    {
+                        <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">Delete</button>
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
 <form asp-action="Delete" id="classDeleteForm">
-    <input type="hidden" id="classid" name="Id"/>
+    <input type="hidden" id="classid" name="Id" />
 </form>
 
-@section Scripts{
+@section Scripts {
     <script>
         $(function(){
             $('.table').DataTable();
 
-            @if (TempData["SwalMessage"] != null)
-            {
-                <text>
-                Swal.fire({
-                    icon: '@TempData["SwalType"]',
-                    title: '@TempData["SwalMessage"]'
-                });
-                </text>
-            }
+        @if (TempData["SwalMessage"] != null)
+        {
+            <text>
+                            Swal.fire({
+                                icon: '@TempData["SwalType"]',
+                                title: '@TempData["SwalMessage"]'
+                            });
+            </text>
+        }
 
             $('.deleteBtn').click(function(e){
                 Swal.fire({
@@ -77,11 +102,11 @@
                     confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                            );
+                            // Swal.fire(
+                            // 'Deleted!',
+                            // 'Your file has been deleted.',
+                            // 'success'
+                            // );
                             var btn = $(this);
                             var id = btn.data("id");
                             $('#classid').val(id);
@@ -91,4 +116,18 @@
             })
         })
     </script>
+}
+
+@functions {
+    private string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "Created" => "badge-primary",
+            "Started" => "badge-success",
+            "Ended" => "badge-secondary",
+            "Cancelled" => "badge-danger",
+            _ => "badge-light"
+        };
+    }
 }

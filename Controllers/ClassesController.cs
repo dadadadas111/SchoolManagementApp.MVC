@@ -41,7 +41,10 @@ namespace SchoolManagementApp.MVC.Controllers
             var @class = await _context.Classes
                 .Include(q => q.Course)
                 .Include(q => q.Lecturer)
+                .Include(q => q.Enrollments)
+                    .ThenInclude(e => e.Student)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (@class == null)
             {
                 return NotFound();
@@ -62,10 +65,18 @@ namespace SchoolManagementApp.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,LecturerId,CourseId,Time")] Class @class)
+        public async Task<IActionResult> Create([Bind("Id,LecturerId,CourseId,Time,StartDate,EndDate")] Class @class)
         {
             if (ModelState.IsValid)
             {
+                // Automatically set the initial status based on dates
+                if (DateTime.Now < @class.StartDate)
+                    @class.Status = "Created";
+                else if (DateTime.Now >= @class.StartDate && DateTime.Now <= @class.EndDate)
+                    @class.Status = "Started";
+                else if (DateTime.Now > @class.EndDate)
+                    @class.Status = "Ended";
+
                 _context.Add(@class);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -96,7 +107,7 @@ namespace SchoolManagementApp.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LecturerId,CourseId,Time")] Class @class)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LecturerId,CourseId,Time,StartDate,EndDate")] Class @class)
         {
             if (id != @class.Id)
             {
@@ -107,6 +118,14 @@ namespace SchoolManagementApp.MVC.Controllers
             {
                 try
                 {
+                    // Automatically update status based on dates
+                    if (DateTime.Now < @class.StartDate)
+                        @class.Status = "Created";
+                    else if (DateTime.Now >= @class.StartDate && DateTime.Now <= @class.EndDate)
+                        @class.Status = "Started";
+                    else if (DateTime.Now > @class.EndDate)
+                        @class.Status = "Ended";
+
                     _context.Update(@class);
                     await _context.SaveChangesAsync();
                 }
@@ -161,21 +180,29 @@ namespace SchoolManagementApp.MVC.Controllers
                 .Include(c => c.Enrollments)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
-            if (@class != null)
+            if (@class == null)
             {
-                if (@class.Enrollments.Any())
-                {
-                    TempData["SwalMessage"] = "Cannot delete class. The class has enrolled students.";
-                    TempData["SwalType"] = "error";
-                    return RedirectToAction(nameof(Index));
-                }
-
-                _context.Classes.Remove(@class);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            TempData["SwalMessage"] = "Class deleted successfully.";
-            TempData["SwalType"] = "success";
+            if (@class.Status != "Cancelled" && @class.Status != "Ended")
+            {
+                _notyfService.Error("Class can only be deleted if it is Cancelled or Ended.");
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (@class.Enrollments.Any())
+            {
+                foreach (var enrollment in @class.Enrollments.ToList())
+                {
+                    _context.Enrollments.Remove(enrollment);
+                }
+            }
+
+            _context.Classes.Remove(@class);
+            await _context.SaveChangesAsync();
+
+            _notyfService.Success("Class deleted successfully.");
             return RedirectToAction(nameof(Index));
         }
 
@@ -187,7 +214,7 @@ namespace SchoolManagementApp.MVC.Controllers
                 .Include(q => q.Enrollments)
                     .ThenInclude(q => q.Student)
                 .FirstOrDefaultAsync(m => m.Id == classId);
-            
+
             var students = await _context.Students.ToListAsync();
 
             var model = new ClassEnrollmentViewModel();
@@ -196,7 +223,10 @@ namespace SchoolManagementApp.MVC.Controllers
                 Id = @class.Id,
                 CourseName = $"{@class.Course.Code} - {@class.Course.Name}",
                 LecturerName = $"{@class.Lecturer.FirstName} {@class.Lecturer.LastName}",
-                Time = @class.Time.ToString()
+                Time = @class.Time.ToString(),
+                StartDate = @class.StartDate,
+                EndDate = @class.EndDate,
+                Status = @class.Status
             };
 
             foreach (var stu in students)
@@ -218,8 +248,16 @@ namespace SchoolManagementApp.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EnrollStudent(int classId, int studentId, bool shouldEnroll)
         {
+            var @class = await _context.Classes.FindAsync(classId);
+            if (@class == null || (@class.Status != "Created" && @class.Status != "Started"))
+            {
+                _notyfService.Error("Class is not open for enrollment.");
+                return RedirectToAction(nameof(ManageEnrollments),
+                new { classId = classId });
+            }
+
             var enrollment = new Enrollment();
-            if(shouldEnroll == true)
+            if (shouldEnroll == true)
             {
                 enrollment.ClassId = classId;
                 enrollment.StudentId = studentId;
@@ -231,31 +269,49 @@ namespace SchoolManagementApp.MVC.Controllers
                 enrollment = await _context.Enrollments.FirstOrDefaultAsync(
                     q => q.ClassId == classId && q.StudentId == studentId);
 
-                if(enrollment != null){
+                if (enrollment != null)
+                {
                     _context.Remove(enrollment);
                     _notyfService.Warning($"Student Unenrolled Successfully");
-                }    
+                }
             }
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(ManageEnrollments), 
-            new { classId = classId});
+            return RedirectToAction(nameof(ManageEnrollments),
+            new { classId = classId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelClass(int id)
+        {
+            var @class = await _context.Classes.FindAsync(id);
+            if (@class == null)
+            {
+                return NotFound();
+            }
+
+            @class.Status = "Cancelled";
+            _context.Update(@class);
+            await _context.SaveChangesAsync();
+            _notyfService.Warning($"Class Cancelled Successfully");
+            return RedirectToAction(nameof(Index));
         }
 
         private bool ClassExists(int id)
         {
-          return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         private void CreateSelectLists()
         {
-            var courses = _context.Courses.Select(q => new 
+            var courses = _context.Courses.Select(q => new
             {
                 CourseName = $"{q.Code} - {q.Name} ({q.Credits} Credits)",
                 q.Id
             });
-            
+
             ViewData["CourseId"] = new SelectList(courses, "Id", "CourseName");
-            var lecturers = _context.Lecturers.Select(q => new 
+            var lecturers = _context.Lecturers.Select(q => new
             {
                 Fullname = $"{q.FirstName} {q.LastName}",
                 q.Id

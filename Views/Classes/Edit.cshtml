@@ -10,6 +10,12 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <div class="form-group">
+            <button type="button" class="btn btn-danger cancelBtn">Cancel Class</button>
+        </div>
+        <form asp-action="CancelClass" id="classCancelForm" method="post">
+            <input type="hidden" asp-for="Id" />
+        </form>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -29,9 +35,20 @@
                 <span asp-validation-for="Time" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" type="date" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" type="date" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
+
     </div>
 </div>
 
@@ -40,5 +57,26 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(function () {
+            $('.cancelBtn').click(function (e) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "This will cancel the class!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, cancel it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#classCancelForm').submit();
+                    }
+                });
+            });
+        });
+    </script>
 }
