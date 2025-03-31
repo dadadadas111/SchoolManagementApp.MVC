@@ -64,16 +64,16 @@
                 <td>
                     @if (item.Status == "Started" || item.Status == "Created")
                     {
-                        <a asp-action="ManageEnrollments" class="btn btn-success" asp-route-classId="@item.Id">@Localizer["Enrollments"]</a>
+                        <a asp-action="ManageEnrollments" class="btn btn-success mb-1" asp-route-classId="@item.Id">@Localizer["Enrollments"]</a>
                     }
                     @if (item.Status != "Cancelled")
                     {
-                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a>
+                        <a class="btn btn-warning mb-1" asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a>
                     }
-                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a>
+                    <a class="btn btn-primary mb-1" asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a>
                     @if (item.Status == "Cancelled" || item.Status == "Ended")
                     {
-                        <button data-id="@item.Id" class="btn btn-danger deleteBtn" type="button">@Localizer["Delete"]</button>
+                        <button data-id="@item.Id" class="btn btn-danger deleteBtn mb-1" type="button">@Localizer["Delete"]</button>
                     }
                 </td>
             </tr>
