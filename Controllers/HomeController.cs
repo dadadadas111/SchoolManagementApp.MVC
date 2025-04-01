@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementApp.MVC.Models;
 using Microsoft.AspNetCore.Localization;
+using SchoolManagementApp.MVC.Data;
 
 namespace SchoolManagementApp.MVC.Controllers;
 
@@ -10,10 +11,12 @@ namespace SchoolManagementApp.MVC.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly SchoolManagementDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, SchoolManagementDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
@@ -46,5 +49,29 @@ public class HomeController : Controller
         );
 
         return LocalRedirect(returnUrl ?? "/");
+    }
+
+    public async Task<IActionResult> Dashboard()
+    {
+        var totalStudents = _context.Students.Count();
+        var totalClasses = _context.Classes.Count();
+        var totalLecturers = _context.Lecturers.Count();
+        var totalEnrollments = _context.Enrollments.Count();
+        var activeClasses = _context.Classes.Count(c => c.Status == "Started");
+        var canceledClasses = _context.Classes.Count(c => c.Status == "Cancelled");
+        var avgStudentsPerClass = totalClasses > 0 ? (double)totalEnrollments / totalClasses : 0;
+
+        var dashboardData = new
+        {
+            TotalStudents = totalStudents,
+            TotalClasses = totalClasses,
+            TotalLecturers = totalLecturers,
+            TotalEnrollments = totalEnrollments,
+            ActiveClasses = activeClasses,
+            CanceledClasses = canceledClasses,
+            AvgStudentsPerClass = avgStudentsPerClass
+        };
+
+        return View(dashboardData);
     }
 }

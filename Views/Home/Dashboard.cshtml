@@ -1,0 +1,122 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Students</h5>
+                <p class="card-text">@Model.TotalStudents</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Classes</h5>
+                <p class="card-text">@Model.TotalClasses</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Lecturers</h5>
+                <p class="card-text">@Model.TotalLecturers</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Total Enrollments</h5>
+                <p class="card-text">@Model.TotalEnrollments</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Active Classes</h5>
+                <p class="card-text">@Model.ActiveClasses</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-secondary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Canceled Classes</h5>
+                <p class="card-text">@Model.CanceledClasses</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Avg Students/Class</h5>
+                <p class="card-text">@Model.AvgStudentsPerClass.ToString("F2")</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <canvas id="dashboardChart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('dashboardChart').getContext('2d');
+        const dashboardChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Students', 'Classes', 'Lecturers', 'Enrollments', 'Active Classes', 'Canceled Classes'],
+                datasets: [{
+                    label: 'Class Statistics',
+                    data: [
+                        @Model.TotalStudents, 
+                        @Model.TotalClasses, 
+                        @Model.TotalLecturers, 
+                        @Model.TotalEnrollments, 
+                        @Model.ActiveClasses, 
+                        @Model.CanceledClasses
+                    ],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(201, 203, 207, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+}
