@@ -11,7 +11,6 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the IoC container.
 var conn = builder.Configuration.GetConnectionString("SchoolManagementDbConnection");
 builder.Services.AddDbContext<SchoolManagementDbContext>(q => q.UseSqlServer(conn));
 
@@ -22,7 +21,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     var supportedCultures = new[]
     {
         new CultureInfo("en-US"),
-        new CultureInfo("fr-FR"), // Add more languages as needed
         new CultureInfo("vi-VN")
     };
 
