@@ -60,6 +60,12 @@ public class HomeController : Controller
         var activeClasses = _context.Classes.Count(c => c.Status == "Started");
         var canceledClasses = _context.Classes.Count(c => c.Status == "Cancelled");
         var avgStudentsPerClass = totalClasses > 0 ? (double)totalEnrollments / totalClasses : 0;
+        var totalCourses = _context.Courses.Count();
+        var totalGradesAssigned = _context.Enrollments.Count(e => e.Grade != null);
+        var createdClasses = _context.Classes.Count(c => c.Status == "Created");
+        var startedClasses = _context.Classes.Count(c => c.Status == "Started");
+        var endedClasses = _context.Classes.Count(c => c.Status == "Ended");
+        var cancelledClasses = _context.Classes.Count(c => c.Status == "Cancelled");
 
         var dashboardData = new
         {
@@ -69,7 +75,13 @@ public class HomeController : Controller
             TotalEnrollments = totalEnrollments,
             ActiveClasses = activeClasses,
             CanceledClasses = canceledClasses,
-            AvgStudentsPerClass = avgStudentsPerClass
+            AvgStudentsPerClass = avgStudentsPerClass,
+            TotalCourses = totalCourses,
+            TotalGradesAssigned = totalGradesAssigned,
+            CreatedClasses = createdClasses,
+            StartedClasses = startedClasses,
+            EndedClasses = endedClasses,
+            CancelledClasses = cancelledClasses
         };
 
         return View(dashboardData);

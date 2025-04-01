@@ -64,7 +64,7 @@
                 <td>
                     @if (item.Status == "Started" || item.Status == "Created")
                     {
-                        <a asp-action="ManageEnrollments" class="btn btn-success mb-1" asp-route-classId="@item.Id">@Localizer["Enrollments"]</a>
+                        <a asp-action="ManageEnrollments" class="btn btn-success mb-1" asp-route-classId="@item.Id">@Localizer["Enroll"]</a>
                     }
                     @if (item.Status != "Cancelled")
                     {
